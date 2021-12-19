@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Contatable area</title>
+
+    <style>
+      div.editable {
+        width: 300px;
+        height: 200px;
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      .lodericon {
+        /* background-color: red; */
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        color: #000;
+        right: 0px;
+        bottom: 0px;
+        display: none;
+      }
+      .maincontentarea {
+        position: relative;
+        border: 1px solid #ddd;
+        width: 450px;
+        height: auto;
+        cursor: pointer;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div contenteditable="true" class="maincontentarea">
+      <br />
+      <br />
+
+      <div class="lodericon">
+        <!-- <i class="fas fa-circle-notch"></i> -->
+        <i class="fas fa-circle-notch fa-spin"></i>
+      </div>
+
+      <!-- <span style="color: lightgreen">Great</span>. -->
+    </div>
+
+    <script>
+      setTimeout(function () {
+        $(".lodericon").show();
+      }, 4000);
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </body>
+</html>

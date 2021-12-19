@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Text Content</title>
+
+    <style>
+      .scrolling-item-bordered-content {
+        outline: none;
+        width: 200px;
+        border-radius: 20px;
+        /*padding: 15px;*/
+        padding: 15px 15px 15px 45px;
+        font-size: 14px;
+        font-family: "HebrewRegular", sans-serif;
+        text-align: right;
+        resize: none;
+        min-height: 144px;
+        max-height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <textarea
+        data-autoresize
+        rows="2"
+        class="scrolling-item-bordered-content"
+      ></textarea>
+      <input type="submit" />
+    </form>
+  </body>
+
+  <script>
+    //	Autoresize textarea
+
+    $.each($("textarea[data-autoresize]"), function () {
+      var offset = this.offsetHeight - this.clientHeight;
+      var resizeTextarea = function (el) {
+        $(el)
+          .css("height", "auto")
+          .css("height", el.scrollHeight + offset);
+      };
+      $(this)
+        .each(function () {
+          resizeTextarea(this);
+        })
+        .removeAttr("data-autoresize");
+    });
+  </script>
+</html>

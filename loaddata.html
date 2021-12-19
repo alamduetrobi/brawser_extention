@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Load Data</title>
+
+    <style>
+      #spinner:not([hidden]) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #spinner::after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        border: 2px solid #f3f3f3;
+        border-top: 3px solid #f25a41;
+        border-radius: 100%;
+        will-change: transform;
+        animation: spin 1s infinite linear;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- this will fetch the data -->
+    <button onclick="loadData()">Load data</button>
+
+    <!-- this will show our spinner -->
+    <div hidden id="spinner"></div>
+
+    <script>
+      const spinner = document.getElementById("spinner");
+
+      function loadData() {
+        spinner.removeAttribute("hidden");
+
+        fetch()
+          //   "https://www.mocky.io/v2/5185415ba171ea3a00704eed?mocky-delay=5000ms"
+          //   .then((response) => response.json())
+          .then((data) => {
+            spinner.setAttribute("hidden", "");
+            // console.log(data);
+          });
+      }
+    </script>
+  </body>
+</html>
